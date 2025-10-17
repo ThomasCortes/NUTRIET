@@ -15,6 +15,9 @@
   fill: none;
   stroke-width: 2;
 }
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 /* --------------------------- */
 /* NAVBAR */
