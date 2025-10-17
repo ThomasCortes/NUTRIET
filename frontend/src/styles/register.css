@@ -89,18 +89,26 @@ form input[type="password"] {
   margin-right: 5px;
 }
 
-.registrar {
+/* EN CASO DE ERRORES CON REDIRECCION DE HTMLS COPEAR EL .REGISTAR + .REGISTRAR:HOVER */
+  .registrar {
   background-color: #fff5d1;
   color: #000;
   font-weight: 600;
   border: 1px solid #000;
+  display: inline-block;
   width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
   border-radius: 8px;
-  margin-top: 15px;
   cursor: pointer;
-  
+  text-align: center;
 }
+
+.registrar:hover {
+  background-color: #ffecb3;
+}
+
+
 
 .divider {
   text-align: center;
