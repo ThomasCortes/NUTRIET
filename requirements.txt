@@ -1,0 +1,13 @@
+# Contenido de requirements.txt
+
+
+#FRAMEWORK BASE
+django>=4.2
+django-ckeditor>=6.7.3
+django-tailwind>=4.2.0
+
+#CONECTOR DE BASE DE DATOS 
+psycopg2>=2.9.11
+
+#Modelo de ptimizacion de datos
+
