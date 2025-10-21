@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/register.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
@@ -57,5 +58,85 @@
       <img src="/frontend/src/images/logo Nutriet.png" alt="Nutriet Logo" class="logo" />
     </div>
   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const registrar = document.querySelector(".registrar");
+    const nombreInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+    const passwordInput = form.querySelector('input[type="password"]');
+    const terminosCheckbox = form.querySelector('input[type="checkbox"]');
+
+    registrar.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (nombreInput.value.trim() === "") {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Por favor, ingresa tu nombre.'
+        });
+        nombreInput.focus();
+        return;
+      }
+
+      if (emailInput.value.trim() === "") {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Por favor, ingresa tu correo electrónico.'
+        });
+        emailInput.focus();
+        return;
+      }
+
+      if (!validateEmail(emailInput.value.trim())) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo inválido',
+          text: 'Por favor, ingresa un correo electrónico válido.'
+        });
+        emailInput.focus();
+        return;
+      }
+
+      if (passwordInput.value.trim() === "") {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Por favor, crea una contraseña.'
+        });
+        passwordInput.focus();
+        return;
+      }
+
+      if (!terminosCheckbox.checked) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Atención',
+          text: 'Debes aceptar los términos y condiciones.'
+        });
+        return;
+      }
+
+      // Éxito
+      Swal.fire({
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        text: 'Redirigiendo...'
+      }).then(() => {
+        window.location.href = registrar.href;
+      });
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+  });
+</script>
+
 </body>
 </html>
